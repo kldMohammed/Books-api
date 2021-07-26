@@ -34,7 +34,7 @@ class BookController {
 
     @PostMapping
     @Transactional
-    fun save(@RequestBody book: @Valid BookInput): Book? {
+    fun save(@Valid @RequestBody book: Book): Book? {
         return repository.saveAndFlush(
             Book(
                 bookName = book.bookName,
